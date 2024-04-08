@@ -20,7 +20,6 @@ public class loginServlet extends HttpServlet {
 	 */
 	public loginServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -49,7 +48,7 @@ public class loginServlet extends HttpServlet {
 			} else {
 				boolean isMatch = false;
 				for (int i = 0; i < usernamelist.length; i++) {
-					if (usernamelist[i].equals(username) && passwordlist[i].equals(password)) {
+					if (username.equals(usernamelist[i]) && password.equals(passwordlist[i])) {
 						request.setAttribute("username", username);
 						request.getRequestDispatcher("/successServlet").forward(request, response);
 						isMatch = true;
@@ -73,7 +72,6 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

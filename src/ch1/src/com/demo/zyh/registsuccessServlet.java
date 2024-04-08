@@ -20,7 +20,6 @@ public class registsuccessServlet extends HttpServlet {
      */
     public registsuccessServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -30,14 +29,13 @@ public class registsuccessServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		HttpSession session = request.getSession();
 		Object uname = (String)session.getAttribute("uname");
-		response.getWriter().write(uname+"£¬×¢²á³É¹¦!<h3>·µ»Ø<a href=/loginDemo/login.html>µÇÂ¼</a></h3>");
+		response.getWriter().write(uname+"£¬×¢²á³É¹¦!<h3>·µ»Ø<a href=/loginDemo/login.html?username=uname>µÇÂ¼</a></h3>");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
