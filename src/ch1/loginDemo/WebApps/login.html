@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<div class="box">
+		<div class="title">
+			<h1>登录页面</h1>
+		</div>
+		<div class="login">
+			<form action="/loginDemo/loginServlet" method="post">
+				<table>
+					<tr>
+						<td class="left-title">姓&nbsp;&nbsp;&nbsp;名:</td>
+						<td colspan="2"><input type="text" class="input"
+							name="username"></td>
+					</tr>
+					<tr>
+						<td class="left-title">密&nbsp;&nbsp;&nbsp;码:</td>
+						<td colspan="2"><input type="password" class="input"
+							name="password"></td>
+					</tr>
+					<tr>
+						<td class="left-title">验证码:</td>
+						<td><input type="text" class="checkinput" name="checkcode"></td>
+						<td><img id="checkcode1" src="/loginDemo/CheckCodeServlet" /></td>
+					</tr>
+					<tr>
+						<td><a href="regist.html">点我注册一个临时账号</a></td>
+						<td><input type="submit" class="btn" value="登录"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

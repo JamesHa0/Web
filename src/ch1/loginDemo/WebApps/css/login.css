@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.box{
+	background:url("../img/bg.jpg");
+	height: 100%;
+	flex-direction:column;
+	padding:20%;
+}
+.title{
+	text-align:center;
+	padding:30px;
+}
+.login{
+  display: flex;
+  justify-content: center;
+}
