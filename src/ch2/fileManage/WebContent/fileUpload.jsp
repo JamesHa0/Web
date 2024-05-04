@@ -15,7 +15,7 @@
 			</tr>
 			<tr>
 				<td><h4>会员号:</h4></td>
-				<td><input type="text" name="mnumber" size="30" /></td>
+				<td><input type="text" name="userId" size="30" /></td>
 			</tr>
 
 			<tr>
@@ -25,7 +25,7 @@
 
 			<tr>
 				<td><h4>文件类型:</h4></td>
-				<td><select name="list">
+				<td><select name="filetype">
 						<option value="" selected="selected">请选择文件类型</option>
 						<option value="file">普通文件</option>
 						<option value="img">图片文件</option>

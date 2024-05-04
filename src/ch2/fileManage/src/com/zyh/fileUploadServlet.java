@@ -30,8 +30,8 @@ public class fileUploadServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String path = this.getServletContext().getRealPath("/");
 		String userName = request.getParameter("username");
-		String mnumber = request.getParameter("mnumber");
-		String fType = request.getParameter("list");
+		String userId = request.getParameter("userId");
+		String fType = request.getParameter("filetype");
 		String date = request.getParameter("userDate");
 		Part p = request.getPart("filename");
 		String message = "";
@@ -39,7 +39,7 @@ public class fileUploadServlet extends HttpServlet {
 			p.delete();
 			message = "文件太大，不能上传！";
 		} else {
-			path = path + "\\source\\" + userName +"\\"+ fType;
+			path = path + "\\source\\" + userId +"\\"+ fType;
 			File f = new File(path);
 			if (!f.exists()) {
 				f.mkdirs();
@@ -48,7 +48,7 @@ public class fileUploadServlet extends HttpServlet {
 			System.out.println(fname);
 			p.write(path + "\\" + fname);
 
-			fileBean fb = new fileBean(fname,fType,userName,date);//将参数存入fileBean传递
+			fileBean fb = new fileBean(fname,fType,userName,date,userId);//将参数存入fileBean传递
 			request.setAttribute("fb", fb);
 			request.getRequestDispatcher("/fileDownload.jsp");
 			

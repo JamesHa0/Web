@@ -16,14 +16,13 @@ public class browsPictureServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String filename = request.getParameter("filename");
-		String username = request.getParameter("username");
+		String userId = request.getParameter("userId");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head><title>Õº∆¨‘§¿¿</title></head>");
 		out.println("<body>");
-		out.println();
-		out.println("<img src=\"source/" + username + "/img/" +filename + "\" />");
+		out.println("<img src=\"source/" + userId + "/img/" +filename + "\" />");
 		out.println("<a href=\"fileDownload.jsp\"><input type=\"button\" value=\"∑µªÿ\" /></a>");
 		out.println("</body>");
 		out.println("</html>");

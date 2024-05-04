@@ -6,17 +6,19 @@ public class fileBean {
 	private String fileType;
 	private String userName;
 	private String userDate;
+	private String userId;
 	
 	public fileBean() {
 		super();
 	}
 
-	public fileBean(String fileName, String fileType, String userName, String userDate) {
+	public fileBean(String fileName, String fileType, String userName, String userDate, String userId) {
 		super();
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.userName = userName;
 		this.userDate = userDate;
+		this.userId = userId;
 	}
 
 	public String getFileName() {
@@ -49,6 +51,14 @@ public class fileBean {
 
 	public void setUserDate(String userDate) {
 		this.userDate = userDate;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	
 	

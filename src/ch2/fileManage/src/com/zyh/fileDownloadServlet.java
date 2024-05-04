@@ -16,9 +16,9 @@ public class fileDownloadServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String filename = request.getParameter("filename");
 		String filetype = request.getParameter("filetype");
-		String username = request.getParameter("username");
+		String userId = request.getParameter("userId");
 		ServletContext servletcontext = this.getServletContext();
-		String realpath = servletcontext.getRealPath("/source/"+ username +"/" + filetype + "/" + filename);
+		String realpath = servletcontext.getRealPath("/source/"+ userId +"/" + filetype + "/" + filename);
 		File file = new File(realpath);
 		if (file.exists()) {
 			FileInputStream fis = new FileInputStream(realpath);

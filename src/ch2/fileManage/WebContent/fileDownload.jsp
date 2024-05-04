@@ -28,8 +28,8 @@
 			<td><h4>img</h4></td>
 			<td><h4>zyh</h4></td>
 			<td><h4>2024-05-04</h4></td>
-			<td><a href="/fileManage/fileDownloadServlet?filename=bg.jpg&filetype=img&username=zyh">下载图片</a></td>
-			<td><a href="/fileManage/browsPictureServlet?filename=bg.jpg&username=zyh">查看图片</a></td>
+			<td><a href="/fileManage/fileDownloadServlet?filename=bg.jpg&filetype=img&userId=22023237">下载图片</a></td>
+			<td><a href="/fileManage/browsPictureServlet?filename=bg.jpg&userId=22023237">查看图片</a></td>
 		</tr>
 		<tr align="center">
 			<td><h4>02</h4></td>
@@ -37,8 +37,8 @@
 			<td><h4>mp3</h4></td>
 			<td><h4>zyh</h4></td>
 			<td><h4>2024-05-04</h4></td>
-			<td><a href="/fileManage/fileDownloadServlet?filename=Bon Jovi - It's My Life.mp3&filetype=mp3&username=zyh" >下载音频</a></td>
-			<td><audio src="source/zyh/mp3/Bon Jovi - It's My Life.mp3" controls="controls"></audio></td>
+			<td><a href="/fileManage/fileDownloadServlet?filename=Bon Jovi - It's My Life.mp3&filetype=mp3&userId=22023237" >下载音频</a></td>
+			<td><audio src="source/22023237/mp3/Bon Jovi - It's My Life.mp3" controls="controls"></audio></td>
 		</tr>
 		<tr align="center">
 			<td><h4>03</h4></td>
@@ -46,7 +46,7 @@
 			<td><h4>file</h4></td>
 			<td><h4>zyh</h4></td>
 			<td><h4>2024-05-04</h4></td>
-			<td colspan="2"><a href="/fileManage/fileDownloadServlet?filename=test.docx&filetype=file&username=zyh">下载文件</a></td>
+			<td colspan="2"><a href="/fileManage/fileDownloadServlet?filename=test.docx&filetype=file&userId=22023237">下载文件</a></td>
 		</tr>
 		<%
 			response.setContentType("text/html;charset=UTF-8");
@@ -59,15 +59,15 @@
 				out.print("<td><h4>" + fb.getUserName() + "</h4></td>");
 				out.print("<td><h4>" + fb.getUserDate() + "</h4></td>");
 				if ("img".equals(fb.getFileType())){
-					out.print("<td><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&username="+fb.getUserName()+"&filetype=img\">下载图片</a></td>");
-					out.print("<td><a href=\"/fileManage/browsPictureServlet?filename="+fb.getFileName()+"\">查看图片</a></td>");
+					out.print("<td><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&userId="+fb.getUserId()+"&filetype=img\">下载图片</a></td>");
+					out.print("<td><a href=\"/fileManage/browsPictureServlet?filename="+fb.getFileName()+"&userId="+fb.getUserId()+"\">查看图片</a></td>");
 				}
 				if ("mp3".equals(fb.getFileType())){
-					out.print("<td><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&username="+fb.getUserName()+"&filetype=mp3\">下载音频</a></td>");
-					out.print("<td><audio src=\"" +fb.getFileName()+ "\" controls=\"controls\"></audio></td>");
+					out.print("<td><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&userId="+fb.getUserId()+"&filetype=mp3\">下载音频</a></td>");
+					out.print("<td><audio src=\"source/" +fb.getUserId() + "/mp3/" +fb.getFileName()+ "\" controls=\"controls\"></audio></td>");
 				}
 				if ("file".equals(fb.getFileType())){
-					out.print("<td colspan=\"2\"><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&username="+fb.getUserName()+"&filetype=file\">下载文件</a></td>");
+					out.print("<td colspan=\"2\"><a href=\"/fileManage/fileDownloadServlet?filename="+fb.getFileName()+"&userId="+fb.getUserId()+"&filetype=file\">下载文件</a></td>");
 				}
 				out.print("</tr>");
 			}
