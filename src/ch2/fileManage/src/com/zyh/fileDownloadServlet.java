@@ -1,6 +1,8 @@
 package com.zyh;
 
 import java.io.*;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +26,7 @@ public class fileDownloadServlet extends HttpServlet {
 			FileInputStream fis = new FileInputStream(realpath);
 			String minetype = servletcontext.getMimeType(filename);
 			response.setHeader("content-type", minetype);
-			response.setHeader("Content-Disposition", "attachment;filename=" + filename);
+			response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(filename,"UTF-8"));
 			BufferedInputStream bis = null;
 			byte[] buffer = new byte[1024];
 			bis = new BufferedInputStream(fis);
