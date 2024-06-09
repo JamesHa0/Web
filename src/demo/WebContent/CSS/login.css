@@ -1,0 +1,286 @@
+/*最外box*/
+.box-m{
+  width: 1000px;
+  margin: 0 auto; /* 居中对齐，可选 */
+}
+
+/*顶部*/
+.top {
+  height: 180px;
+  background-image: linear-gradient(to right,#ffffff, transparent), url("../img/yang.webp");
+  background-size: 50% 100%;
+	background-position: center right; 
+	background-repeat: no-repeat;
+}
+.duihui{
+	width: 180px;
+	height: 180px;
+	float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 导航 */
+.nav {
+  height: 100px;
+  background: linear-gradient(#215E21,#ffffff);
+}
+.nav td{
+  width: 200px;
+  text-align: center;
+  position: relative;
+}
+.nav td a{
+	color: white;
+	font-size: 100%;
+	font-family: 华文新魏;
+	font-weight: bold;
+	text-shadow: 0 0 4px #000000,0 0 4px #000000;
+}
+
+.nav ul{
+  list-style-type: none;
+}
+
+/* 下拉按钮样式 */
+.dropbtn{
+	background: transparent;
+  color: white;
+	font-size: 200%;
+	font-family: 华文新魏;
+	font-weight: bold;
+	text-shadow: 0 0 4px #000000,0 0 4px #000000;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn a:after{
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #e924457e;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transition: all .8s;
+}
+.dropbtn a:hover:after{
+  left: 0%;
+   width: 100%;
+}
+
+/* 下拉内容 (默认隐藏) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #215E21;
+    min-width: 200px;
+	border-radius: 15px;
+	z-index: 30;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a:link{
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+	font-family: 楷体;
+	font-size: 120%;
+  display: block;
+	border-radius: 10px;
+}
+.dropdown-content a:hover {
+	background-color: #dedede;
+	color: #39a339;
+	text-shadow:0 #ffffff;
+}
+
+/* 在鼠标移上去后显示下拉菜单 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 当下拉内容显示后修改下拉按钮的背景颜色 */
+.dropdown:hover .dropbtn {
+    background: transparent;
+}
+
+/*超链接*/
+.nav a{
+	color: white;
+	font-size: 200%;
+	font-family: 华文新魏;
+	font-weight: bold;
+	text-shadow: 0 0 4px #000000,0 0 4px #000000;
+	text-decoration-line: none;
+}
+.nav a:hover{
+	color: #215E21;
+  text-decoration: none;
+}
+
+/* 登录区块 */
+.login{
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
+.container {
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #000000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.login table th {
+  width: 100%;
+  border-radius: 5px;
+  background: transparent;
+  color: rgb(0, 0, 0);
+	font-size: 200%;
+	font-family: 华文新魏;
+	font-weight: bold;
+  padding: 16px;
+}
+
+.login table td {
+  padding: 10px;
+  font-family: 华文新魏;
+  font-size: 120%;
+}
+
+
+table input[type="text"],
+table input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+table input[type="reset"],
+table input[type="submit"] {
+  width: 100%;
+  border-radius: 5px;
+  background: transparent;
+  color: rgb(0, 0, 0);
+	font-size: 180%;
+	font-family: 华文新魏;
+	font-weight: bold;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+}
+table input[type="reset"],
+.login table input[type="submit"]:hover {
+  background-color: #ffffff;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+}
+
+/* 页脚 */
+.foot{
+	width: 100%;
+	background-image: url("../img/chouduan.png") ;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+  background-size: cover;
+}
+.douyin{
+  float: right;
+  margin-left: 10px;
+}
+.foot td li{
+  color: rgb(241, 238, 12);
+  font-size: 170%;
+	font-family: 华文新魏;
+	font-weight: bold;
+}
+/*正文*/
+.txt{
+	width:850px;
+	position: relative;
+	left: 75px;
+}
+.txt h1{
+	text-align: center;
+}
+.txt h4{
+	text-align: right;
+	font-family: 宋体;
+}
+.txt h4+p{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-size: 50%;
+}
+.txt p+p{
+	padding: 20px;
+	font-size: 150%;
+	font-family: 楷体;
+	text-indent: 2em;
+	margin-top: 0;
+}
+.txt b{
+	font-size: 125%;
+	font-weight: bold;
+	font-style: italic;
+	color: #ff0000;
+}
+.txt img{
+	position: relative;
+	width: 800px;
+}
+.txt img+p{
+	font-style: italic;
+	font-family: 华文行楷;
+	text-align: center;
+	font-size: 120%;
+}
+.txt img+p b{
+	color: #73716e;
+	font-size: 200%;
+}
+.word{
+	width:850px;
+	height: 750px;
+	position: relative;
+	left:75px;
+}
+.vd {
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vd video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
