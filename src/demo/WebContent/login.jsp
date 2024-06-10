@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录界面</title>
+<title>欢迎登录</title>
+<script type="text/javascript" src="js/login.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/login.css">
 </head>
 <body>
@@ -16,6 +17,7 @@
 	alert("<%=message%>");
 	</script>
 	<%
+			request.removeAttribute("login_msg");
 		}
 	%>
 	<div>
@@ -55,7 +57,7 @@
                                     <div>
                                         <ul>
                                             <li><a href="login.jsp">登录</a></li>
-                                            <li><a href="register.html">注册</a></li>
+                                            <li><a href="regist.jsp">注册</a></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -80,20 +82,23 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img id="checkcode1" src="/loginDemo/CheckCodeServlet" />
+                                            <img id="checkcode1" src="/demo/CheckCodeServlet" />
                                         </td>
                                         <td>
-                                            <button onclick="refreshCaptcha()">刷新</button>
+                                            <a href="#" onclick="reImg();">看不清换一张？</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" align="center">
-                                            <input id="checkcode" type="text" placeholder="请输入验证码(不区分大小写)"> 
+                                            <input id="checkcode" name="checkcode" type="text" placeholder="请输入验证码(不区分大小写)"> 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" align="center">
-                                            <button onclick="validateCaptcha()">提交</button>
+                                        <td align="center">
+                                        	<input type="reset" />
+                                        </td>
+                                        <td align="center">
+                                        	<input type="submit" />
                                         </td>
                                     </tr>
                                 </table>
@@ -131,12 +136,5 @@
             </table>
         </div>
     </div>
-    <script>
-        function refreshCaptcha() {
-    		generateRandomImage();
-    		document.getElementById("inputCode").value = ""; // 清空验证码输入框
-  		}  
-
-      </script>
 </body>
 </html>

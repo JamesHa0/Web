@@ -1,6 +1,7 @@
 package com.demo;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -13,30 +14,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class CheckCodeServlet
- */
 @WebServlet("/CheckCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public CheckCodeServlet() {
-		super();
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int width = 100;
-		int height = 40;
+		int width = 120;
+		int height = 50;
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics g = image.getGraphics();
+		g.setColor(Color.RED);
+		g.setFont(new Font("Arial", Font.BOLD, 30));
 		g.setColor(Color.GREEN);
 		g.fillRect(0, 0, width, height);
 		g.setColor(Color.BLUE);
@@ -50,7 +39,6 @@ public class CheckCodeServlet extends HttpServlet {
 			str1 = str1 + ch;
 			g.drawString(ch + "", width / 5 * i, height / 2);
 			request.getSession().setAttribute("checkcode_session", str1);
-			g.setColor(Color.RED);
 		}
 		for (int j = 0; j < 6; j++) {
 			int x1 = ran.nextInt(width);
@@ -62,10 +50,6 @@ public class CheckCodeServlet extends HttpServlet {
 		ImageIO.write(image, "jpg", response.getOutputStream());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

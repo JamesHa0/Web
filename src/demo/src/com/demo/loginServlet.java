@@ -1,5 +1,7 @@
 package com.demo;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +30,7 @@ public class loginServlet extends HttpServlet {
 		if (checkcode_session.equalsIgnoreCase(checkinput)) {
 			if ((username == null || username.isEmpty()) || (password == null || password.isEmpty())) {
 				request.setAttribute("login_msg", "用户名或密码不能为空！");
-				request.getRequestDispatcher("/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/L_R.jsp").forward(request, response);
 			} else {
 				boolean isMatch = false;
 				for (int i = 0; i < usernamelist.length; i++) {
@@ -41,12 +43,12 @@ public class loginServlet extends HttpServlet {
 				}
 				if (!isMatch) {
 					request.setAttribute("login_msg", "用户名或密码输入错误！");
-					request.getRequestDispatcher("/login.jsp").forward(request, response);
+					request.getRequestDispatcher("/L_R.jsp").forward(request, response);
 				}
 			}
 		} else {
 			request.setAttribute("login_msg", "验证码输入错误，请重新登录");
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/L_R.jsp").forward(request, response);
 		}
 	}
 

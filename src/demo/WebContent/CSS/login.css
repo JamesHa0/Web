@@ -177,7 +177,7 @@ table input[type="password"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
 }
 table input[type="reset"],
 table input[type="submit"] {
@@ -185,8 +185,8 @@ table input[type="submit"] {
   border-radius: 5px;
   background: transparent;
   color: rgb(0, 0, 0);
-	font-size: 180%;
-	font-family: 华文新魏;
+	font-size: 150%;
+	font-family: 华文行楷;
 	font-weight: bold;
   padding: 16px;
   border: none;
