@@ -1,6 +1,7 @@
 package com.demo;
 
 public class User {
+	private String userId;
 	private String userName;
 	private String password;
 	private String phoneNumber;
@@ -10,12 +11,22 @@ public class User {
 		super();
 	}
 
-	public User(String userName, String password, String phoneNumber, String email) {
+	public User(String userId, String userName, String password, String phoneNumber, String email) {
 		super();
+		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+	}
+
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUserName() {

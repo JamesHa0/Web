@@ -1,6 +1,8 @@
 package com.demo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,38 +19,55 @@ public class loginServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String checkinput = request.getParameter("checkcode");
-		String username = request.getParameter("username");
+		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
+		String isAdmin = request.getParameter("isAdmin");
 		HttpSession session = request.getSession();
 		String checkcode_session = (String) session.getAttribute("checkcode_session");
-		Object uname = (String) session.getAttribute("uname");
-		String Suname = (String) uname;
-		Object pwd = (String) session.getAttribute("pwd");
-		String Spwd = (String) pwd;
-		String usernamelist[] = new String[] { "詹宇昊", "zyh", "ZhanYuHao", "JamesHao", "zhanyuhao", Suname };
-		String passwordlist[] = new String[] { "22023237", "22023237", "22023237", "22023237", "22023237", Spwd };
+		
+		userDaoImp userImp=new userDaoImp();
+		
 		if (checkcode_session.equalsIgnoreCase(checkinput)) {
-			if ((username == null || username.isEmpty()) || (password == null || password.isEmpty())) {
-				request.setAttribute("login_msg", "用户名或密码不能为空！");
-				request.getRequestDispatcher("/L_R.jsp").forward(request, response);
-			} else {
-				boolean isMatch = false;
-				for (int i = 0; i < usernamelist.length; i++) {
-					if (username.equals(usernamelist[i]) && password.equals(passwordlist[i])) {
-						request.setAttribute("username", username);
-						request.getRequestDispatcher("/index.html").forward(request, response);
-						isMatch = true;
-						break;
-					}
-				}
-				if (!isMatch) {
-					request.setAttribute("login_msg", "用户名或密码输入错误！");
+			if ((userId == null || userId.isEmpty()) || (password == null || password.isEmpty())) {
+				if("true".equals(isAdmin)) {
+					request.setAttribute("adminLogin_msg", "用户名或密码不能为空！");
+					request.getRequestDispatcher("/login.jsp").forward(request, response);
+				}else {
+					request.setAttribute("userLogin_msg", "用户名或密码不能为空！");
 					request.getRequestDispatcher("/L_R.jsp").forward(request, response);
+				}
+			} else {
+				User user;
+				try {
+					if("true".equals(isAdmin)) {
+						user = userImp.check2(userId, password);
+						session.setAttribute("user", user);
+						session.setAttribute("userName",user.getUserName());
+						request.getRequestDispatcher("Admin/index.jsp").forward(request, response);
+					}else {
+						user = userImp.check(userId, password);
+						session.setAttribute("user", user);
+						session.setAttribute("userName",user.getUserName());
+						request.getRequestDispatcher("/index.jsp").forward(request, response);
+					}
+				} catch (SQLException e) {
+					if("true".equals(isAdmin)) {
+						request.setAttribute("adminLogin_msg", "用户名或密码输入错误！");
+						request.getRequestDispatcher("/login.jsp").forward(request, response);
+					}else {
+						request.setAttribute("userLogin_msg", "用户名或密码输入错误！");
+						request.getRequestDispatcher("/L_R.jsp").forward(request, response);
+					}
 				}
 			}
 		} else {
-			request.setAttribute("login_msg", "验证码输入错误，请重新登录");
-			request.getRequestDispatcher("/L_R.jsp").forward(request, response);
+			if("true".equals(isAdmin)) {
+				request.setAttribute("adminLogin_msg", "验证码输入错误，请重新登录");
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
+			}else {
+				request.setAttribute("userLogin_msg", "验证码输入错误，请重新登录");
+				request.getRequestDispatcher("/L_R.jsp").forward(request, response);
+			}
 		}
 	}
 

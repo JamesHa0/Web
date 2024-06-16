@@ -10,14 +10,14 @@
 </head>
 <body>
 	<%
-		String message = (String) request.getAttribute("login_msg");
+		String message = (String) request.getAttribute("adminLogin_msg");
 		if (message != null) {
 	%>
 	<script type="text/javascript">
 	alert("<%=message%>");
 	</script>
 	<%
-			request.removeAttribute("login_msg");
+			request.removeAttribute("adminLogin_msg");
 		}
 	%>
 	<div>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>
                                     <div class="dropbtn">
-                                    <a href="index.html">首页</a>
+                                    <a href="index.jsp">首页</a>
                                     </div>
                                 </td>
                                 <td>
@@ -56,8 +56,7 @@
                                 <td>
                                     <div>
                                         <ul>
-                                            <li><a href="login.jsp">登录</a></li>
-                                            <li><a href="regist.jsp">注册</a></li>
+                                            <li><a href="L_R.jsp">登录&注册</a></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -67,14 +66,14 @@
                 <tr>
                     <div class="login">
                         <div class="container">
-                            <form name="login" method="post" action="/demo/loginServlet">
+                            <form name="login" method="post" action="loginServlet">
                                 <table>
                                     <tr>
-                                        <th colspan="2">用户登录</th>
+                                        <th colspan="2">管理员登录</th>
                                     </tr>
                                     <tr>
-                                        <td>用户名：</td>
-                                        <td><input type="text" name="username"></td>
+                                        <td>管理员ID：</td>
+                                        <td><input type="text" name="userId"></td>
                                     </tr>
                                     <tr>
                                         <td>密&nbsp;码：</td>
@@ -100,6 +99,9 @@
                                         <td align="center">
                                         	<input type="submit" />
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="hidden" name="isAdmin" value="true" /></td>
                                     </tr>
                                 </table>
                             </form>

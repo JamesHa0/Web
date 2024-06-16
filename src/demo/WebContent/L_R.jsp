@@ -10,14 +10,14 @@
 </head>
 <body>
 	<%
-		String message = (String) request.getAttribute("login_msg");
+		String message = (String) request.getAttribute("userLogin_msg");
 		if (message != null) {
 	%>
 	<script type="text/javascript">
 	alert("<%=message%>");
 	</script>
 	<%
-		request.removeAttribute("login_msg");
+		request.removeAttribute("userLogin_msg");
 		}
 	%>
 	<div>
@@ -34,7 +34,7 @@
 							<tr>
 								<td>
 									<div class="dropbtn">
-										<a href="index.html">首页</a>
+										<a href="index.jsp">首页</a>
 									</div>
 								</td>
 								<td>
@@ -54,8 +54,7 @@
 								<td>
 									<div>
 										<ul>
-											<li><a href="login.jsp">登录</a></li>
-											<li><a href="regist.jsp">注册</a></li>
+											<li><a href="L_R.jsp">登录&注册</a></li>
 										</ul>
 									</div>
 								</td>
@@ -64,43 +63,47 @@
 				</tr>
 				<tr>
 					<div class="container right-panel-active">
-						<!-- Sign Up -->
-						<div class="container__form container--signup">
-							<form action="" method="post" class="form" id="form1"
-								onsubmit="return reg(this);">
-								<h2 class="form__title">注册</h2>
-								<input name="username" type="text" placeholder="账号" class="input" />
-								<input name="password" type="password" placeholder="密码" class="input" />
-								<button class="btn">注册</button>
-							</form>
-						</div>
-
-
-						<!-- Sign In 登录在左边 是form2 -->
+						<!-- Sign In -->
 						<div class="container__form container--signin">
 							<form action="loginServlet" class="form" id="form2" method="post">
 								<h2 class="form__title">登录</h2>
 								<p>
-									<a href="${pageContext.request.contextPath }/glsign.jsp">管理员登录</a>
+									<a href="${pageContext.request.contextPath }/login.jsp">管理员登录</a>
 								</p>
-								<input name="username" type="text" placeholder="账号" class="input" />
+								<input name="userId" type="text" placeholder="学号/ID" class="input" />
 								<input name="password" type="password" placeholder="密码" class="input" />
-								<input name="vericode" placeholder="点击下方图片刷新" value="" class="checkcode">
+								<input name="checkcode" placeholder="点击下方图片刷新" value="" class="checkcode">
 								<img id="checkcode1" src="/demo/CheckCodeServlet" />
 
-
 								<button class="btn" type="submit">登录</button>
+                                <input type="hidden" name="isAdmin" value="false" />
+							</form>
+						</div>
 
+
+						<!-- Sign Up 注册在左边 是form2 -->
+						<div class="container__form container--signup">
+							
+							<form action="registServlet" method="post" class="form" id="form1"
+								onsubmit="return reg(this);">
+								<h2 class="form__title">注册</h2>
+								<input name="userId" type="text" placeholder="学号*" class="input" />
+								<input name="userName" type="text" placeholder="用户名*" class="input" />
+								<input name="phoneNumber" type="text" placeholder="手机号*" class="input" />
+								<input name="email" type="text" placeholder="邮箱" class="input" />
+								<input name="password1" type="password" placeholder="密码*" class="input" />
+								<input name="password2" type="password" placeholder="确认密码*" class="input" />
+								<button class="btn">注册</button>
 							</form>
 						</div>
 
 						<div class="container__overlay">
 							<div class="overlay">
 								<div class="overlay__panel overlay--left">
-									<button class="btn" id="signIn">已有账号？直接登录</button>
+									<button class="btn" id="signIn">没有账号？注册一个</button>
 								</div>
 								<div class="overlay__panel overlay--right">
-									<button class="btn" id="signUp">注册</button>
+									<button class="btn" id="signUp">已有账号，直接登录</button>
 								</div>
 							</div>
 						</div>

@@ -38,6 +38,13 @@
 	font-weight: bold;
 	text-shadow: 0 0 4px #000000,0 0 4px #000000;
 }
+.userName{
+	color: white;
+	font-size: 100%;
+	font-family: 华文新魏;
+	font-weight: bold;
+	text-shadow: 0 0 4px #000000,0 0 4px #000000;
+}
 
 .nav ul{
   list-style-type: none;

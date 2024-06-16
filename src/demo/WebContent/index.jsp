@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -12,21 +14,39 @@
 			<video class="video-background" preload="auto" loop playsinline autoplay src="video/1.mp4" tabindex="-1" muted="muted" ></video>
 		</div>
 		<ul class="nav">
-			<li><a href="index.html" class="index">首页</a></li>
+			<li><a href="index.jsp" class="index">首页</a></li>
 			<li>
 				<div class="dropdown">
 					<button class="dropbtn">新闻资讯</button>
 					<div class="dropdown-content">
-						<a href="guohu.html">国护日常</a>
-						<a href="bbb.html">标兵班风采</a>
+						<a href="guohu.jsp">国护日常</a>
+						<a href="bbb.jsp">标兵班风采</a>
 					</div>
 				</div>
 			</li>
-			<li><a href="skill.html">军训秘籍</a></li>
+			<li><a href="skill.jsp">军训秘籍</a></li>
 		</ul>
 		<ul class="login">
-			<li><a href="login.jsp">登录</a></li>
-			<li><a href="regist.jsp">注册</a></li>
+			<%
+				String userName = (String)session.getAttribute("userName");
+				if(userName == null){
+			%>
+			<li>
+				<a href="L_R.jsp">登录&注册</a>
+			</li>
+			<%
+				}else{
+			%>
+			<li>
+				<p>欢迎您，${sessionScope.userName}</p>
+			</li>
+			<li>
+				<a href="logout.jsp">登出</a>
+			</li>
+			<%
+				}
+			%>
+			
 		</ul>
 		<div class="slogan">
 		    <div class="subtitle">哈尔滨学院</div>
