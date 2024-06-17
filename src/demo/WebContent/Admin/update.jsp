@@ -19,8 +19,8 @@
 	<%
 		}
 	%>
-	<form action="updateServlet" method="get">
-		请输入学号：<input type="text" name="sno" size="15" />
+	<form action="../updateServlet" method="get">
+		请输入用户ID：<input type="text" name="userId" />
 		<input type="submit" value="确定" />
 	</form>
 

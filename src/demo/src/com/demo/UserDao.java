@@ -12,6 +12,7 @@ public interface UserDao extends Dao{
     public List<User> listUser() throws DaoException, SQLException;
     public User listUserOne(String userId) throws DaoException, SQLException;
     public int removeUser(String userId) throws DaoException, SQLException;
-    public int update(User user,String newPassword) throws DaoException, SQLException;
+    public int update(User user) throws DaoException, SQLException;
+    public int updatePwd(User user,String newPassword) throws DaoException, SQLException;
     
 }

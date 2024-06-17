@@ -196,15 +196,40 @@ public class userDaoImp implements UserDao {
 		}
 	}
 
-	// 修改密码
-	public int update(User user,String newPassword) throws DaoException, SQLException {
+	// 更新用户信息
+	public int update(User user) throws DaoException, SQLException {
 		Connection conn = getConnection();
-		String sql = "UPDATE User Set password=? where userId=?";
+		String sql = "UPDATE User Set userName=?,password=?,phoneNumber=?,email=? where userId=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getUserName());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getPhoneNumber());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setString(5, user.getUserId());
+			return pstmt.executeUpdate();
+		} catch (SQLException sqle) {
+			System.out.println(sqle);
+			return 0;
+		} finally {
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
 
+	}
+		
+	// 修改密码
+	public int updatePwd(User user,String newPassword) throws DaoException, SQLException {
+		Connection conn = getConnection();
+		String sql = "UPDATE User Set password=? where userId=?";
+		try { 
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, newPassword);
-			pstmt.setString(3, user.getUserId());
+			pstmt.setString(2, user.getUserId());
 			return pstmt.executeUpdate();
 		} catch (SQLException sqle) {
 			System.out.println(sqle);

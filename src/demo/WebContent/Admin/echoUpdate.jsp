@@ -22,7 +22,7 @@
 	%>
 	<script type="text/javascript">
 	alert("<%=message%>");
-		location.href = "update.jsp";
+		location.href = "Admin/update.jsp";
 	</script>
 	<%
 		}
@@ -32,13 +32,12 @@
 			<caption>请输入用户信息</caption>
 			<tr>
 				<td>ID</td>
-				<td><input type="text" name="userId"
-					value="<%=user.getUserId()%>" /></td>
+				<td>${user.userId }</td>
 			</tr>
 
 			<tr>
 				<td>用户名</td>
-				<td><input type="text" name="sname"
+				<td><input type="text" name="userName"
 					value="<%=user.getUserName()%>" /></td>
 			</tr>
 
@@ -64,6 +63,10 @@
 				<td colspan="2"><input type="submit" value="确定" /></td>
 			</tr>
 
+			<tr>
+				<td><input type="hidden" name="userId"
+					value="<%=user.getUserId()%>" /></td>
+			</tr>
 		</table>
 	</form>
 

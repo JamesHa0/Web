@@ -18,7 +18,7 @@
 		}
 	%>
 	<form action="../deleteServlet" method="post">
-		请输入要删除的用户ID：<input type="text" name="sno"><br /> <input
+		请输入要删除的用户ID：<input type="text" name="userId"><br /> <input
 			type="submit" value="确认">
 
 	</form>
