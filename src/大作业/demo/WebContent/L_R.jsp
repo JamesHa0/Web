@@ -41,13 +41,13 @@
 									<div class="dropdown">
 										<button class="dropbtn">新闻资讯</button>
 										<div class="dropdown-content">
-											<a href="guohu.html">国护日常</a> <a href="bbb.html">标兵班风采</a>
+											<a href="guohu.jsp">国护日常</a> <a href="bbb.jsp">标兵班风采</a>
 										</div>
 									</div>
 								</td>
 								<td>
 									<div class="dropbtn">
-										<a href="skill.html">军训秘籍</a>
+										<a href="skill.jsp">军训秘籍</a>
 									</div>
 								</td>
 								<td></td>
