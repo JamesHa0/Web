@@ -75,25 +75,25 @@
 								<input name="checkcode" placeholder="点击下方图片刷新" value="" class="checkcode">
 								<img id="checkcode1" src="/demo/CheckCodeServlet" />
 
-								<button class="btn" type="submit">登录</button>
+								<button class="btn" type="submit" >登录</button>
                                 <input type="hidden" name="isAdmin" value="false" />
 							</form>
 						</div>
 
 
-						<!-- Sign Up 注册在左边 是form2 -->
+						<!-- Sign Up 注册在左边 是form1 -->
 						<div class="container__form container--signup">
 							
-							<form action="registServlet" method="post" class="form" id="form1"
+							<form action="registServlet" method="post" class="form" id="form1" name="form1"
 								onsubmit="return reg(this);">
 								<h2 class="form__title">注册</h2>
-								<input name="userId" type="text" placeholder="学号*" class="input" />
-								<input name="userName" type="text" placeholder="用户名*" class="input" />
-								<input name="phoneNumber" type="text" placeholder="手机号*" class="input" />
+								<input name="userId" type="text" placeholder="学号*" class="input" id="userId"/>
+								<input name="userName" type="text" placeholder="用户名*" class="input" id="userName"/>
+								<input name="phoneNumber" type="text" placeholder="手机号*" class="input" id="phoneNumber" />
 								<input name="email" type="text" placeholder="邮箱" class="input" />
-								<input name="password1" type="password" placeholder="密码*" class="input" />
-								<input name="password2" type="password" placeholder="确认密码*" class="input" />
-								<button class="btn">注册</button>
+								<input name="password1" type="password" placeholder="密码*" class="input" id="password1" />
+								<input name="password2" type="password" placeholder="确认密码*" class="input" id="password2"/>
+								<button class="btn" type="submit" onclick="check()">注册</button>
 							</form>
 						</div>
 
